@@ -79,7 +79,11 @@ def main():
             #while True:
             #    set_register(client, REGISTER_ADDRESS_AC_POWER, AC_POWER)
             #    sleep(1)  # 1 Sekunde warten
-            set_register(client, UNIT_ID_VEBUS, REGISTER_ADDRESS_AC_POWER_L1_MODE3_VEBUS, 1, 30, 'AC POWER') # change power value !
+            set_register(client, UNIT_ID_VEBUS, REGISTER_ADDRESS_AC_POWER_L1_MODE3_VEBUS, 1, 50, 'AC POWER') # change power value !
+            sleep(1)
+            read_register(client, UNIT_ID_VEBUS, REGISTER_ADDRESS_AC_POWER_L1_MODE3_VEBUS, 1, "AC POWER")
+            logger.info('Waiting 65 seconds to reset register')
+            sleep(65)  # 1 Sekunde warten
             read_register(client, UNIT_ID_VEBUS, REGISTER_ADDRESS_AC_POWER_L1_MODE3_VEBUS, 1, "AC POWER")
         else:
             logger.error('Verbindung konnte nicht hergestellt werden.')
